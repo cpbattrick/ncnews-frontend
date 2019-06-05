@@ -23,7 +23,7 @@ class SingleArticle extends React.Component {
         <h3>Author: {author}</h3>
         <h4>Comment Count: {comment_count}</h4>
         {this.props.loggedInUser && <CommentForm article_id={this.props.article_id} loggedInUser={this.props.loggedInUser}/>}
-        <ArticleComments article_id={this.props.article_id} />
+        <ArticleComments loggedInUser={this.props.loggedInUser} article_id={this.props.article_id} />
       </div>
     );
   }
