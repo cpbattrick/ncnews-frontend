@@ -53,3 +53,9 @@ export const patchArticle = (id, vote) => {
     .patch(`${baseUrl}/articles/${id}`, { inc_votes: vote })
     .then(({ data: { article } }) => article);
 };
+
+export const patchComment = (id, vote) => {
+  return axios
+    .patch(`${baseUrl}/comments/${id}`, { inc_votes: vote })
+    .then(({ data: { comment } }) => comment);
+};
