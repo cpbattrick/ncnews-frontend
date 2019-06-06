@@ -37,9 +37,15 @@ class SingleArticle extends React.Component {
   };
 
   render() {
-    const { title, author, topic, comment_count, votes } = this.state.article;
+    const {
+      title,
+      author,
+      topic,
+      comment_count,
+      votes,
+      body
+    } = this.state.article;
     if (this.state.err) return <Error err={this.state.err} />;
-
     return (
       <div className="singlearticle">
         <h1>{title}</h1>
@@ -47,6 +53,7 @@ class SingleArticle extends React.Component {
         <h3>Author: {author}</h3>
         <h4>Comment Count: {comment_count}</h4>
         <h4>Article Votes: {votes + this.state.direction}</h4>
+        <article>{body}</article>
         <button onClick={() => this.handleVote(1)}>Good Article!</button>
         <button onClick={() => this.handleVote(-1)}>Bad Article!</button>
         {this.props.loggedInUser && (

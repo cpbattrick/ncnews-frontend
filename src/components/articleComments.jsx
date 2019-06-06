@@ -16,7 +16,7 @@ class ArticleComments extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="articlecomments">
         <h2>Comments</h2>
         {this.state.comments.map(comment => {
           return (
