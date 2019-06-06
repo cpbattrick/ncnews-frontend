@@ -1,5 +1,6 @@
 import React from "react";
 import { patchComment } from "../api";
+import { purgeComment } from "../api";
 
 class Comment extends React.Component {
   state = {
@@ -20,9 +21,15 @@ class Comment extends React.Component {
       });
   };
 
+  deleteComment = comment_id => {
+    purgeComment(comment_id).then(res => {
+      console.log(res);
+    });
+  };
+
   render() {
     return (
-      <div>
+      <div className="comment">
         <h3>{this.props.comment.author}</h3>
         <h4>{this.props.comment.body}</h4>
         <h4>Votes: {this.props.comment.votes + this.state.direction}</h4>

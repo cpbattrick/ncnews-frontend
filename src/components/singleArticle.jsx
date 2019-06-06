@@ -41,7 +41,7 @@ class SingleArticle extends React.Component {
     if (this.state.err) return <Error err={this.state.err} />;
 
     return (
-      <div>
+      <div className="singlearticle">
         <h1>{title}</h1>
         <h2>Topic: {topic}</h2>
         <h3>Author: {author}</h3>

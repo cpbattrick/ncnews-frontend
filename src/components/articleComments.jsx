@@ -1,6 +1,6 @@
 import React from "react";
 import { getCommentsByArticleId } from "../api";
-import { purgeComment } from "../api";
+
 import Comment from "./comment";
 
 class ArticleComments extends React.Component {
@@ -14,19 +14,17 @@ class ArticleComments extends React.Component {
     });
   }
 
-  deleteComment = comment_id => {
-    purgeComment(comment_id).then(res => {
-      console.log(res);
-    });
-  };
-
   render() {
     return (
       <div>
+        <h2>Comments</h2>
         {this.state.comments.map(comment => {
           return (
             <div key={`comment${comment.comment_id}`}>
-              <Comment comment={comment} />
+              <Comment
+                loggedInUser={this.props.loggedInUser}
+                comment={comment}
+              />
             </div>
           );
         })}

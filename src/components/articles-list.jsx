@@ -8,8 +8,9 @@ const ArticlesList = props => {
       {props.articles.map(article => {
         return (
           <div key={`article${article.article_id}`}>
-            <Article article={article} />
-            <Link to={`/${article.article_id}`}>Full article, or is it?</Link>
+            <Link to={`/${article.article_id}`}>
+              <Article article={article} />
+            </Link>
           </div>
         );
       })}
