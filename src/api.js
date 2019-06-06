@@ -38,11 +38,18 @@ export const getCommentsByArticleId = articleId => {
 
 export const postComment = (commentBody, article_id) => {
   return axios
-  .post(`${baseUrl}/articles/${article_id}/comments`, commentBody)
-  .then(({ data : { comment }}) => {return comment})
-}
+    .post(`${baseUrl}/articles/${article_id}/comments`, commentBody)
+    .then(({ data: { comment } }) => {
+      return comment;
+    });
+};
 
-export const purgeComment = (comment_id) => {
+export const purgeComment = comment_id => {
+  return axios.delete(`${baseUrl}/comments/${comment_id}`);
+};
+
+export const patchArticle = (id, vote) => {
   return axios
-    .delete(`${baseUrl}/comments/${comment_id}`)
-}
+    .patch(`${baseUrl}/articles/${id}`, { inc_votes: vote })
+    .then(({ data: { article } }) => article);
+};
