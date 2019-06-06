@@ -1,5 +1,6 @@
 import React from "react";
 import { getCommentsByArticleId } from "../api";
+import { purgeComment } from '../api'
 
 class ArticleComments extends React.Component {
   state = {
@@ -13,7 +14,9 @@ class ArticleComments extends React.Component {
   }
 
 deleteComment = (comment_id) => {
-
+ purgeComment(comment_id).then(res => {
+   console.log(res)
+ })
 }
 
   render() {
@@ -24,7 +27,7 @@ deleteComment = (comment_id) => {
             <div key={`comment${comment.comment_id}`}>
               <h3>{comment.author}</h3>
               {comment.body}
-              {comment.author === this.props.loggedInUser && <button onClick={this.deleteComment}>Inappropriate</button>}
+              {comment.author === this.props.loggedInUser && <button onClick={()=> this.deleteComment(comment.comment_id)}>Inappropriate</button>}
             </div>
           );
         })}

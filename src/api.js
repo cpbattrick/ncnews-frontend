@@ -41,3 +41,8 @@ export const postComment = (commentBody, article_id) => {
   .post(`${baseUrl}/articles/${article_id}/comments`, commentBody)
   .then(({ data : { comment }}) => {return comment})
 }
+
+export const purgeComment = (comment_id) => {
+  return axios
+    .delete(`${baseUrl}/comments/${comment_id}`)
+}
