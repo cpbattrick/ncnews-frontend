@@ -10,7 +10,6 @@ const ArticlesList = props => {
           <div key={`article${article.article_id}`}>
             <Article article={article} />
             <Link to={`/${article.article_id}`}>Full article, or is it?</Link>
-            {props.loggedInUser && <button>Don't Push</button>}
           </div>
         );
       })}

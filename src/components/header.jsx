@@ -1,11 +1,12 @@
 import React from "react";
 import LoginBox from "./loginBox";
+import "../App.css";
 
 const Header = props => {
   return (
-    <div>
-      <h1>News Stuff, maybe cat memes</h1>
-      <LoginBox loginUser={props.loginUser} logoutUser={props.logoutUser}/>
+    <div className="Header">
+      <h1>News For Humans</h1>
+      <LoginBox loginUser={props.loginUser} logoutUser={props.logoutUser} />
     </div>
   );
 };

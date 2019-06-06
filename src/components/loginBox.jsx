@@ -1,17 +1,24 @@
 import React from "react";
 import { getUser } from "../api";
+import Error from "./error";
 
 class LoginBox extends React.Component {
   state = {
-    userInput: ""
+    userInput: "",
+    err: null
   };
 
   handleSubmit = event => {
     event.preventDefault();
     const { userInput } = this.state;
-    getUser(userInput).then(user => {
-      this.props.loginUser(user.username);
-    });
+    getUser(userInput)
+      .then(user => {
+        this.setState({ err: null });
+        this.props.loginUser(user.username);
+      })
+      .catch(({ response: { data: { msg } } }) => {
+        this.setState({ err: msg });
+      });
   };
 
   storeUserInput = event => {
@@ -20,12 +27,16 @@ class LoginBox extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login">
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.storeUserInput} type="text" />
-          <button type='submit'>Login</button>
-          <button type='button' onClick={this.props.logoutUser}>Logout</button>
+          <h3>Default User: jessjelly</h3>
+          <button type="submit">Login</button>
+          <button type="button" onClick={this.props.logoutUser}>
+            Logout
+          </button>
         </form>
+        {this.state.err && <Error err={this.state.err} />}
       </div>
     );
   }

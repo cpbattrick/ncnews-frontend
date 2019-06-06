@@ -1,20 +1,20 @@
 import React from "react";
 import ArticlesList from "./articles-list";
 import { getArticles } from "../api";
-import SortBar from './sortBar'
+import SortBar from "./sortBar";
 
 class ArticlesPage extends React.Component {
   state = {
     articles: [],
-    query:{}
+    query: {}
   };
 
-  getArticlesByUser = () => {
-    const username = "jessjelly";
-    getArticles({ username }).then(articles => {
-      this.setState({ articles });
-    });
-  };
+  // getArticlesByUser = () => {
+  //   const username = "jessjelly";
+  //   getArticles({ username }).then(articles => {
+  //     this.setState({ articles });
+  //   });
+  // };
 
   componentDidMount() {
     getArticles({}).then(articles => {
@@ -28,17 +28,14 @@ class ArticlesPage extends React.Component {
     });
   }
 
-setQuery = (query) => {
-  this.setState({query})
-}
+  setQuery = query => {
+    this.setState({ query });
+  };
 
   render() {
     return (
-      <div>
-        <button onClick={this.getArticlesByUser}>
-          Get Some Dudes Articles
-        </button>
-        <SortBar setQuery={this.setQuery}/>
+      <div className="articlepage">
+        <SortBar setQuery={this.setQuery} />
         <ArticlesList
           loggedInUser={this.props.loggedInUser}
           articles={this.state.articles}

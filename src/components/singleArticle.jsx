@@ -3,17 +3,23 @@ import { getArticle } from "../api";
 import ArticleComments from "./articleComments";
 import CommentForm from "./commentsForm";
 import { patchArticle } from "../api";
+import Error from "./error";
 
 class SingleArticle extends React.Component {
   state = {
     article: {},
-    direction: 0
+    direction: 0,
+    err: null
   };
 
   componentDidMount() {
-    getArticle(this.props.article_id).then(article => {
-      this.setState({ article });
-    });
+    getArticle(this.props.article_id)
+      .then(article => {
+        this.setState({ article });
+      })
+      .catch(({ response: { data: { msg } } }) => {
+        this.setState({ err: msg });
+      });
   }
 
   handleVote = vote => {
@@ -32,6 +38,8 @@ class SingleArticle extends React.Component {
 
   render() {
     const { title, author, topic, comment_count, votes } = this.state.article;
+    if (this.state.err) return <Error err={this.state.err} />;
+
     return (
       <div>
         <h1>{title}</h1>
