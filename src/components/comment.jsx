@@ -34,8 +34,23 @@ class Comment extends React.Component {
         <h4>{this.props.comment.body}</h4>
         <h4>Votes: {this.props.comment.votes + this.state.direction}</h4>
 
-        <button onClick={() => this.handleVote(1)}>\o/</button>
-        <button onClick={() => this.handleVote(-1)}>{":("}</button>
+        {this.props.loggedInUser && (
+          <div>
+            {" "}
+            <button
+              disabled={this.state.direction === 1}
+              onClick={() => this.handleVote(1)}
+            >
+              {this.state.direction === -1 ? "Bad Vote!" : "\\o/"}
+            </button>
+            <button
+              disabled={this.state.direction === -1}
+              onClick={() => this.handleVote(-1)}
+            >
+              {this.state.direction === 1 ? "Bad Vote!" : ":("}
+            </button>
+          </div>
+        )}
 
         {this.props.comment.author === this.props.loggedInUser && (
           <button

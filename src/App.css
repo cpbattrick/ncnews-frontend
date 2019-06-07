@@ -47,3 +47,13 @@ h2 {
 .articlecomments {
   margin-top: 3rem;
 }
+
+button {
+  margin: 0.2rem;
+}
+
+.error {
+  font-size: 30px;
+  text-align: center;
+  margin: 1em;
+}

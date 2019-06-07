@@ -1,7 +1,6 @@
 import React from "react";
 import { getArticle } from "../api";
 import ArticleComments from "./articleComments";
-import CommentForm from "./commentsForm";
 import { patchArticle } from "../api";
 import Error from "./error";
 
@@ -54,14 +53,23 @@ class SingleArticle extends React.Component {
         <h4>Comment Count: {comment_count}</h4>
         <h4>Article Votes: {votes + this.state.direction}</h4>
         <article>{body}</article>
-        <button onClick={() => this.handleVote(1)}>Good Article!</button>
-        <button onClick={() => this.handleVote(-1)}>Bad Article!</button>
         {this.props.loggedInUser && (
-          <CommentForm
-            article_id={this.props.article_id}
-            loggedInUser={this.props.loggedInUser}
-          />
+          <div>
+            <button
+              disabled={this.state.direction === 1}
+              onClick={() => this.handleVote(1)}
+            >
+              {this.state.direction === -1 ? "Bad Vote!" : "Good Article!"}
+            </button>
+            <button
+              disabled={this.state.direction === -1}
+              onClick={() => this.handleVote(-1)}
+            >
+              {this.state.direction === 1 ? "Bad Vote!" : "Bad Article!"}
+            </button>
+          </div>
         )}
+
         <ArticleComments
           loggedInUser={this.props.loggedInUser}
           article_id={this.props.article_id}

@@ -29,7 +29,11 @@ class LoginBox extends React.Component {
     return (
       <div className="login">
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.storeUserInput} type="text" />
+          <input
+            className="loginInput"
+            onChange={this.storeUserInput}
+            type="text"
+          />
           <h3>Default User: jessjelly</h3>
           <button type="submit">Login</button>
           <button type="button" onClick={this.props.logoutUser}>

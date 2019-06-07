@@ -13,7 +13,7 @@ class CommentForm extends React.Component {
       body: this.state.userInput
     };
     postComment(commentBody, this.props.article_id).then(comment => {
-      console.log(comment);
+      this.props.optRenderComment(comment);
     });
   };
 
