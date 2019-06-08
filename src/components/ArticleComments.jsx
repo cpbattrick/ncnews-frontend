@@ -6,7 +6,8 @@ import Comment from "./Comment";
 class ArticleComments extends React.Component {
   state = {
     comments: [],
-    page: 1
+    page: 1,
+    err: false
   };
 
   componentDidMount() {
@@ -39,6 +40,13 @@ class ArticleComments extends React.Component {
     });
   };
 
+  removeOptComment = () => {
+    this.setState(prevState => {
+      const editedComments = prevState.comments.slice(1);
+      return { comments: editedComments, err: true };
+    });
+  };
+
   render() {
     const totalPages = Math.ceil(+this.props.comment_count / 10);
     return (
@@ -51,6 +59,7 @@ class ArticleComments extends React.Component {
           />
         )}
         <h2>Comments</h2>
+        {this.state.err && <div>Comment failed to post</div>}
         {this.state.comments.map(comment => {
           return (
             <div key={`comment${comment.comment_id}`}>

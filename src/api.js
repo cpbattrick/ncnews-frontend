@@ -7,9 +7,9 @@ export const getArticles = query => {
     .get(`${baseUrl}/articles`, {
       params: query
     })
-    .then(({ data: { articles } }) => {
-      console.log(articles);
-      return articles;
+    .then(data => {
+      console.log(data);
+      return data;
     });
 };
 

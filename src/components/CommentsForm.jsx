@@ -12,9 +12,13 @@ class CommentForm extends React.Component {
       username: this.props.loggedInUser,
       body: this.state.userInput
     };
-    postComment(commentBody, this.props.article_id).then(comment => {
-      this.props.optRenderComment(comment);
-    });
+    postComment(commentBody, this.props.article_id)
+      .then(comment => {
+        this.props.optRenderComment(commentBody);
+      })
+      .catch(err => {
+        this.props.removeOptComment();
+      });
   };
 
   storeUserInput = event => {

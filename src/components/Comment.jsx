@@ -30,9 +30,10 @@ class Comment extends React.Component {
   render() {
     return (
       <div className="comment">
-        <h3>{this.props.comment.author}</h3>
+        <h3>{this.props.comment.author || this.props.comment.username}</h3>
+
         <h4>{this.props.comment.body}</h4>
-        <h4>Votes: {this.props.comment.votes + this.state.direction}</h4>
+        <h4>Votes: {this.props.comment.votes + this.state.direction || "0"}</h4>
 
         {this.props.loggedInUser && (
           <div>

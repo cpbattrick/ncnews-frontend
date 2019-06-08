@@ -12,16 +12,12 @@ class ArticlesPage extends React.Component {
     sort_by: ""
   };
 
-  // getArticlesByUser = () => {
-  //   const username = "jessjelly";
-  //   getArticles({ username }).then(articles => {
-  //     this.setState({ articles });
-  //   });
-  // };
-
   componentDidMount() {
-    getArticles({}).then(articles => {
-      this.setState({ articles });
+    getArticles({}).then(data => {
+      this.setState({
+        articles: data.data.articles,
+        article_count: data.data.total_count
+      });
     });
   }
 
@@ -36,8 +32,11 @@ class ArticlesPage extends React.Component {
       prevState.sort_by !== this.state.sort_by ||
       prevState.topic !== this.state.topic
     ) {
-      getArticles(query).then(articles => {
-        this.setState({ articles });
+      getArticles(query).then(data => {
+        this.setState({
+          articles: data.data.articles,
+          article_count: data.data.total_count
+        });
       });
     }
   }
@@ -53,6 +52,7 @@ class ArticlesPage extends React.Component {
   };
 
   render() {
+    const pageCount = Math.ceil(+this.state.article_count / 10);
     return (
       <div className="articlepage">
         <SortBar setQuery={this.setQuery} />
@@ -70,6 +70,7 @@ class ArticlesPage extends React.Component {
           </button>
         )}
         <button
+          disabled={this.state.page === pageCount}
           onClick={() => {
             this.changePage(1);
           }}
