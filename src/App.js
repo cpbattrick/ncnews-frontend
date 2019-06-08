@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/header";
-import ArticlesPage from "./components/articles-page";
+import Header from "./components/Header";
+import ArticlesPage from "./components/ArticlesPage";
 import { Router } from "@reach/router";
-import SingleArticle from "./components/singleArticle";
-import Error from "./components/error";
+import SingleArticle from "./components/SingleArticle";
+import Error from "./components/Error";
 
 class App extends React.Component {
   state = {

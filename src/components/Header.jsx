@@ -1,5 +1,5 @@
 import React from "react";
-import LoginBox from "./loginBox";
+import LoginBox from "./LoginBox";
 import "../App.css";
 
 const Header = props => {

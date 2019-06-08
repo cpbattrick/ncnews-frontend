@@ -1,8 +1,8 @@
 import React from "react";
 import { getArticle } from "../api";
-import ArticleComments from "./articleComments";
+import ArticleComments from "./ArticleComments";
 import { patchArticle } from "../api";
-import Error from "./error";
+import Error from "./Error";
 
 class SingleArticle extends React.Component {
   state = {
@@ -71,6 +71,7 @@ class SingleArticle extends React.Component {
         )}
 
         <ArticleComments
+          comment_count={comment_count}
           loggedInUser={this.props.loggedInUser}
           article_id={this.props.article_id}
         />

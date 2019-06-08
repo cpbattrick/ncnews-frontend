@@ -1,6 +1,6 @@
 import React from "react";
 import { getUser } from "../api";
-import Error from "./error";
+import Error from "./Error";
 
 class LoginBox extends React.Component {
   state = {

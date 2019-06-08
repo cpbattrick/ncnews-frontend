@@ -8,6 +8,7 @@ export const getArticles = query => {
       params: query
     })
     .then(({ data: { articles } }) => {
+      console.log(articles);
       return articles;
     });
 };
@@ -28,9 +29,11 @@ export const getArticle = id => {
     });
 };
 
-export const getCommentsByArticleId = articleId => {
+export const getCommentsByArticleId = (articleId, query) => {
   return axios
-    .get(`${baseUrl}/articles/${articleId}/comments`)
+    .get(`${baseUrl}/articles/${articleId}/comments`, {
+      params: query
+    })
     .then(({ data: { comments } }) => {
       return comments;
     });

@@ -12,7 +12,7 @@ class SortBar extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.setQuery(this.state);
+    this.props.setQuery(this.state.topic, this.state.sort_by);
   };
 
   render() {

@@ -1,13 +1,15 @@
 import React from "react";
-import ArticlesList from "./articles-list";
+import ArticlesList from "./ArticlesList";
 import { getArticles } from "../api";
-import SortBar from "./sortBar";
+import SortBar from "./SortBar";
 
 class ArticlesPage extends React.Component {
   state = {
     articles: [],
-    query: {},
-    page: 1
+    page: 1,
+    article_count: 0,
+    topic: "",
+    sort_by: ""
   };
 
   // getArticlesByUser = () => {
@@ -24,15 +26,24 @@ class ArticlesPage extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const query = this.state.query;
-    query.p = this.state.page;
-    getArticles(query).then(articles => {
-      this.setState({ articles });
-    });
+    const query = {
+      topic: this.state.topic,
+      p: this.state.page,
+      sort_by: this.state.sort_by
+    };
+    if (
+      prevState.page !== this.state.page ||
+      prevState.sort_by !== this.state.sort_by ||
+      prevState.topic !== this.state.topic
+    ) {
+      getArticles(query).then(articles => {
+        this.setState({ articles });
+      });
+    }
   }
 
-  setQuery = query => {
-    this.setState({ query });
+  setQuery = (topic, sort) => {
+    this.setState({ topic: topic, sort_by: sort });
   };
 
   changePage = num => {
