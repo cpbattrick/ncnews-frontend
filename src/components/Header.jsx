@@ -9,14 +9,13 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
+    flexGrow: 1,
+    flexWrap: "wrap"
   },
   title: {
     flexGrow: 1
-  }
+  },
+  mobile: {}
 }));
 
 const Header = props => {
@@ -25,17 +24,19 @@ const Header = props => {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <LoginBox
-            color="inherit"
-            loggedInUser={props.loggedInUser}
-            loginUser={props.loginUser}
-            logoutUser={props.logoutUser}
-          />
-        </Toolbar>
+        <div className={classes.mobile}>
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              News
+            </Typography>
+            <LoginBox
+              color="inherit"
+              loggedInUser={props.loggedInUser}
+              loginUser={props.loginUser}
+              logoutUser={props.logoutUser}
+            />
+          </Toolbar>
+        </div>
       </AppBar>
     </div>
   );

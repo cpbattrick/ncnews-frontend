@@ -11,12 +11,11 @@ import format from "date-fns/format";
 const styles = theme => ({
   card: {
     minWidth: 275,
-    margin: "1rem"
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
+    margin: "1rem",
+    // eslint-disable-next-line no-useless-computed-key
+    ["@media (max-width:780px)"]: {
+      marginLeft: "0rem"
+    }
   },
   title: {
     fontSize: 14

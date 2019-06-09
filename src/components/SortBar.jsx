@@ -10,14 +10,22 @@ const styles = theme => ({
   form: {
     display: "inline-flex",
     flexDirection: "row",
-    width: "50%"
+    width: "50%",
+    // eslint-disable-next-line no-useless-computed-key
+    ["@media (max-width:780px)"]: {
+      width: "100%"
+    }
   },
   column: {
     display: "flex",
     flexDirection: "column",
     flexBasis: "100%",
     flex: 1,
-    marginLeft: "1rem"
+    marginLeft: "1rem",
+    // eslint-disable-next-line no-useless-computed-key
+    ["@media (max-width:780px)"]: {
+      marginLeft: "0rem"
+    }
   },
   button: {
     minWidth: "100px",
@@ -41,12 +49,14 @@ class SortBar extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const {
+      classes: { form, column, button }
+    } = this.props;
 
     return (
       <div>
-        <form className={classes.form} onSubmit={this.handleSubmit}>
-          <FormControl className={classes.column}>
+        <form className={form} onSubmit={this.handleSubmit}>
+          <FormControl className={column}>
             <InputLabel htmlFor="topic-simple">Topics</InputLabel>
             <Select
               value={this.state.topic}
@@ -63,7 +73,7 @@ class SortBar extends React.Component {
             </Select>
           </FormControl>
 
-          <FormControl className={classes.column}>
+          <FormControl className={column}>
             <InputLabel htmlFor="sort-simple">Order By</InputLabel>
             <Select
               name="sort_by"
@@ -79,7 +89,7 @@ class SortBar extends React.Component {
               <MenuItem value={"comment_count"}>Comment Count</MenuItem>
             </Select>
           </FormControl>
-          <Button type="submit" className={classes.button}>
+          <Button type="submit" className={button}>
             Sort me!
           </Button>
         </form>
