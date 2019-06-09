@@ -3,6 +3,7 @@ import { getUser } from "../api";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { Typography } from "@material-ui/core";
+import Popover from "./Popover";
 
 class LoginBox extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class LoginBox extends React.Component {
 
   render() {
     return (
-      <div className="login">
+      <div>
         <form onSubmit={this.handleSubmit}>
           <TextField
             error={!!this.state.err}
@@ -39,6 +40,7 @@ class LoginBox extends React.Component {
             onChange={this.storeUserInput}
             margin="normal"
           />
+          <Popover />
           <Button
             disabled={this.props.loggedInUser ? true : false}
             type="submit"

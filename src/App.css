@@ -1,4 +1,4 @@
-.Header {
+/* .Header {
   border-width: 3px;
   border-color: blanchedalmond;
   border-style: ridge;
@@ -17,7 +17,7 @@
 
 .login {
   grid-area: login;
-}
+} */
 
 .articlepage {
   margin: 2rem;
