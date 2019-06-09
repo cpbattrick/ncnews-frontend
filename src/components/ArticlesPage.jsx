@@ -2,6 +2,7 @@ import React from "react";
 import ArticlesList from "./ArticlesList";
 import { getArticles } from "../api";
 import SortBar from "./SortBar";
+import Button from "@material-ui/core/Button";
 
 class ArticlesPage extends React.Component {
   state = {
@@ -61,22 +62,22 @@ class ArticlesPage extends React.Component {
           articles={this.state.articles}
         />
         {this.state.page > 1 && (
-          <button
+          <Button
             onClick={() => {
               this.changePage(-1);
             }}
           >
             No! Backwards with haste, I wasn't finished browsing!
-          </button>
+          </Button>
         )}
-        <button
+        <Button
           disabled={this.state.page === pageCount}
           onClick={() => {
             this.changePage(1);
           }}
         >
           Next page stupid machine, these articles displease me!
-        </button>
+        </Button>
       </div>
     );
   }

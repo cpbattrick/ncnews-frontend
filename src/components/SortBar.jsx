@@ -1,4 +1,29 @@
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+
+const styles = theme => ({
+  form: {
+    display: "inline-flex",
+    flexDirection: "row",
+    width: "50%"
+  },
+  column: {
+    display: "flex",
+    flexDirection: "column",
+    flexBasis: "100%",
+    flex: 1,
+    marginLeft: "1rem"
+  },
+  button: {
+    minWidth: "100px",
+    marginLeft: "1rem"
+  }
+});
 
 class SortBar extends React.Component {
   state = {
@@ -16,53 +41,51 @@ class SortBar extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
+
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Topics:
-            <select
-              name="topic"
+        <form className={classes.form} onSubmit={this.handleSubmit}>
+          <FormControl className={classes.column}>
+            <InputLabel htmlFor="topic-simple">Topics</InputLabel>
+            <Select
               value={this.state.topic}
               onChange={this.handleChange}
+              inputProps={{
+                name: "topic",
+                id: "topic-simple"
+              }}
             >
-              <option name="all" value="">
-                All
-              </option>
-              <option name="football" value="football">
-                Football
-              </option>
-              <option name="cooking" value="cooking">
-                Cooking
-              </option>
-              <option name="coding" value="coding">
-                Coding
-              </option>
-            </select>
-          </label>
-          <label>
-            Order By:
-            <select
+              <MenuItem value={""}>All</MenuItem>
+              <MenuItem value={"football"}>Football</MenuItem>
+              <MenuItem value={"cooking"}>Cooking</MenuItem>
+              <MenuItem value={"coding"}>Coding</MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl className={classes.column}>
+            <InputLabel htmlFor="sort-simple">Order By</InputLabel>
+            <Select
               name="sort_by"
               value={this.state.sort_by}
               onChange={this.handleChange}
+              inputProps={{
+                name: "sort_by",
+                id: "order-by-simple"
+              }}
             >
-              <option name="none" value="">
-                None
-              </option>
-              <option name="votes" value="votes">
-                Votes
-              </option>
-              <option name="comment_count" value="comment_count">
-                Comment Count
-              </option>
-            </select>
-          </label>
-          <button type="submit">Sort Me!</button>
+              <MenuItem value={""}>None</MenuItem>
+              <MenuItem value={"votes"}>Votes</MenuItem>
+              <MenuItem value={"comment_count"}>Comment Count</MenuItem>
+            </Select>
+          </FormControl>
+          <Button type="submit" className={classes.button}>
+            Sort me!
+          </Button>
         </form>
       </div>
     );
   }
 }
 
-export default SortBar;
+export default withStyles(styles)(SortBar);
