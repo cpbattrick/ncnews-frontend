@@ -4,7 +4,7 @@ import Error from "./Error";
 
 class LoginBox extends React.Component {
   state = {
-    userInput: "",
+    userInput: "jessjelly",
     err: null
   };
 
@@ -31,10 +31,10 @@ class LoginBox extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input
             className="loginInput"
+            defaultValue="jessjelly"
             onChange={this.storeUserInput}
             type="text"
           />
-          <h3>Default User: jessjelly</h3>
           <button type="submit">Login</button>
           <button type="button" onClick={this.props.logoutUser}>
             Logout
