@@ -1,10 +1,12 @@
 import React from "react";
 import { getUser } from "../api";
-import Error from "./Error";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import { Typography } from "@material-ui/core";
 
 class LoginBox extends React.Component {
   state = {
-    userInput: "jessjelly",
+    userInput: "",
     err: null
   };
 
@@ -29,18 +31,28 @@ class LoginBox extends React.Component {
     return (
       <div className="login">
         <form onSubmit={this.handleSubmit}>
-          <input
-            className="loginInput"
-            defaultValue="jessjelly"
+          <TextField
+            error={!!this.state.err}
+            id="standard-name"
+            label={this.state.err ? "Invalid User!" : "Username"}
+            // className={classes.textField}
             onChange={this.storeUserInput}
-            type="text"
+            margin="normal"
           />
-          <button type="submit">Login</button>
-          <button type="button" onClick={this.props.logoutUser}>
-            Logout
-          </button>
+          <Button
+            disabled={this.props.loggedInUser ? true : false}
+            type="submit"
+          >
+            <Typography>Login</Typography>
+          </Button>
+          <Button
+            disabled={this.props.loggedInUser ? false : true}
+            type="button"
+            onClick={this.props.logoutUser}
+          >
+            <Typography>Logout</Typography>
+          </Button>
         </form>
-        {this.state.err && <Error err={this.state.err} />}
       </div>
     );
   }

@@ -19,6 +19,7 @@ class App extends React.Component {
     return (
       <div>
         <Header
+          loggedInUser={this.state.loggedInUser}
           loginUser={this.setUser}
           logoutUser={() => this.setUser(null)}
         />
