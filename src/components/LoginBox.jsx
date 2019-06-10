@@ -17,13 +17,14 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     flex: 1,
-    marginLeft: "1rem"
+    marginLeft: "1rem",
+    maxWidth: "60px"
   },
   textField: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
-    marginLeft: "2rem"
+    paddingLeft: "10px"
   },
   popover: {
     paddingTop: "30px",
@@ -31,10 +32,8 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     flex: 1,
-    marginLeft: "1rem"
-  },
-  button: {
-    minWidth: "100px"
+    marginLeft: "10px",
+    maxWidth: "15px"
   }
 });
 
