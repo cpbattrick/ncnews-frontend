@@ -80,14 +80,16 @@ class SingleArticle extends React.Component {
             <br />
             <Typography variant="h6">Topic: {topic}</Typography>
             <Typography variant="h6">Author: {author}</Typography>
-            <Typography variant="h6">
-              Article Votes: {votes + this.state.direction}
-            </Typography>
+
             <br />
             <Typography variant="body1">{body}</Typography>
+            <br />
+            <Typography variant="subtitle1">
+              Approval clicks: {votes + this.state.direction}
+            </Typography>
           </CardContent>
           {this.props.loggedInUser && (
-            <div>
+            <CardActions>
               <Button
                 disabled={this.state.direction === 1}
                 onClick={() => this.handleVote(1)}
@@ -100,7 +102,7 @@ class SingleArticle extends React.Component {
               >
                 {this.state.direction === 1 ? "Bad Vote!" : "Bad Article!"}
               </Button>
-            </div>
+            </CardActions>
           )}
         </Card>
         <ArticleComments
