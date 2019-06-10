@@ -63,7 +63,7 @@ class Comment extends React.Component {
           <Button
             onClick={() => this.deleteComment(this.props.comment.comment_id)}
           >
-            Inappropriate
+            Delete
           </Button>
         )}
       </div>
