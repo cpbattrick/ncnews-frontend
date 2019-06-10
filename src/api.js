@@ -8,7 +8,6 @@ export const getArticles = query => {
       params: query
     })
     .then(data => {
-      console.log(data);
       return data;
     });
 };

@@ -32,7 +32,7 @@ class CommentForm extends React.Component {
     };
     postComment(commentBody, this.props.article_id)
       .then(comment => {
-        this.props.optRenderComment(commentBody);
+        this.props.optRenderComment(comment);
       })
       .catch(err => {
         this.props.removeOptComment();
