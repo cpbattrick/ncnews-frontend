@@ -3,6 +3,27 @@ import { getArticle } from "../api";
 import ArticleComments from "./ArticleComments";
 import { patchArticle } from "../api";
 import Error from "./Error";
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+
+const styles = theme => ({
+  card: {
+    minWidth: 275,
+    width: "90%",
+    marginTop: "20px",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto"
+  },
+  title: {},
+  pos: {
+    marginBottom: 12
+  }
+});
 
 class SingleArticle extends React.Component {
   state = {
@@ -36,6 +57,8 @@ class SingleArticle extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
+
     const {
       title,
       author,
@@ -46,30 +69,38 @@ class SingleArticle extends React.Component {
     } = this.state.article;
     if (this.state.err) return <Error err={this.state.err} />;
     return (
-      <div className="singlearticle">
-        <h1>{title}</h1>
-        <h2>Topic: {topic}</h2>
-        <h3>Author: {author}</h3>
-        <h4>Comment Count: {comment_count}</h4>
-        <h4>Article Votes: {votes + this.state.direction}</h4>
-        <article>{body}</article>
-        {this.props.loggedInUser && (
-          <div>
-            <button
-              disabled={this.state.direction === 1}
-              onClick={() => this.handleVote(1)}
-            >
-              {this.state.direction === -1 ? "Bad Vote!" : "Good Article!"}
-            </button>
-            <button
-              disabled={this.state.direction === -1}
-              onClick={() => this.handleVote(-1)}
-            >
-              {this.state.direction === 1 ? "Bad Vote!" : "Bad Article!"}
-            </button>
-          </div>
-        )}
-
+      <div>
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography variant="h2" className={classes.title}>
+              {title}
+            </Typography>
+            <br />
+            <Typography variant="h6">Topic: {topic}</Typography>
+            <Typography variant="h6">Author: {author}</Typography>
+            <Typography variant="h6">
+              Article Votes: {votes + this.state.direction}
+            </Typography>
+            <br />
+            <Typography variant="body1">{body}</Typography>
+          </CardContent>
+          {this.props.loggedInUser && (
+            <div>
+              <button
+                disabled={this.state.direction === 1}
+                onClick={() => this.handleVote(1)}
+              >
+                {this.state.direction === -1 ? "Bad Vote!" : "Good Article!"}
+              </button>
+              <button
+                disabled={this.state.direction === -1}
+                onClick={() => this.handleVote(-1)}
+              >
+                {this.state.direction === 1 ? "Bad Vote!" : "Bad Article!"}
+              </button>
+            </div>
+          )}
+        </Card>
         <ArticleComments
           comment_count={comment_count}
           loggedInUser={this.props.loggedInUser}
@@ -80,4 +111,35 @@ class SingleArticle extends React.Component {
   }
 }
 
-export default SingleArticle;
+export default withStyles(styles)(SingleArticle);
+
+// export default function SimpleCard() {
+
+//   return (
+//     <Card className={classes.card}>
+//       <CardContent>
+//         <Typography className={classes.title} color="textSecondary" gutterBottom>
+//           Word of the Day
+//         </Typography>
+//         <Typography variant="h5" component="h2">
+//           be
+//           {bull}
+//           nev
+//           {bull}o{bull}
+//           lent
+//         </Typography>
+//         <Typography className={classes.pos} color="textSecondary">
+//           adjective
+//         </Typography>
+//         <Typography variant="body2" component="p">
+//           well meaning and kindly.
+//           <br />
+//           {'"a benevolent smile"'}
+//         </Typography>
+//       </CardContent>
+//       <CardActions>
+//         <Button size="small">Learn More</Button>
+//       </CardActions>
+//     </Card>
+//   );
+// }
