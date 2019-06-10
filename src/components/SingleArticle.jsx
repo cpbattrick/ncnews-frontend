@@ -19,7 +19,9 @@ const styles = theme => ({
     marginLeft: "auto",
     marginRight: "auto"
   },
-  title: {},
+  title: {
+    fontSize: 40
+  },
   pos: {
     marginBottom: 12
   }
@@ -86,18 +88,18 @@ class SingleArticle extends React.Component {
           </CardContent>
           {this.props.loggedInUser && (
             <div>
-              <button
+              <Button
                 disabled={this.state.direction === 1}
                 onClick={() => this.handleVote(1)}
               >
                 {this.state.direction === -1 ? "Bad Vote!" : "Good Article!"}
-              </button>
-              <button
+              </Button>
+              <Button
                 disabled={this.state.direction === -1}
                 onClick={() => this.handleVote(-1)}
               >
                 {this.state.direction === 1 ? "Bad Vote!" : "Bad Article!"}
-              </button>
+              </Button>
             </div>
           )}
         </Card>
