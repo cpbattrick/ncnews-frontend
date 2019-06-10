@@ -74,6 +74,7 @@ class ArticleComments extends React.Component {
         <CardContent>
           {this.props.loggedInUser && (
             <CommentForm
+              removeOptComment={this.removeOptComment}
               article_id={this.props.article_id}
               loggedInUser={this.props.loggedInUser}
               optRenderComment={this.optRenderComment}
