@@ -24,7 +24,9 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     flex: 1,
-    paddingLeft: "10px"
+    paddingLeft: "10px",
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1)
   }
 });
 
@@ -58,16 +60,15 @@ class LoginBox extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <FormGroup className={classes.form}>
-            <div className={classes.textField}>
+            <div>
               <TextField
-                error={!!this.state.err}
                 id="standard-name"
                 label={this.state.err ? "Invalid User!" : "Username"}
                 onChange={this.storeUserInput}
-                margin="normal"
+                margin="dense"
                 className={classes.textField}
                 helperText="Default User: jessjelly"
-                variant="filled"
+                variant="outlined"
               />
             </div>
             <Button
