@@ -25,15 +25,6 @@ const styles = theme => ({
     flexDirection: "column",
     flex: 1,
     paddingLeft: "10px"
-  },
-  popover: {
-    paddingTop: "30px",
-    paddingLeft: "15px",
-    display: "flex",
-    flexDirection: "column",
-    flex: 1,
-    marginLeft: "10px",
-    maxWidth: "15px"
   }
 });
 
@@ -74,10 +65,10 @@ class LoginBox extends React.Component {
                 label={this.state.err ? "Invalid User!" : "Username"}
                 onChange={this.storeUserInput}
                 margin="normal"
+                className={classes.textField}
+                helperText="Default User: jessjelly"
+                variant="filled"
               />
-            </div>
-            <div className={classes.popover}>
-              <Popover />
             </div>
             <Button
               className={classes.column}
