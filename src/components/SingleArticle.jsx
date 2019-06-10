@@ -84,7 +84,7 @@ class SingleArticle extends React.Component {
             <br />
             <Typography variant="body1">{body}</Typography>
             <br />
-            <Typography variant="subtitle1">
+            <Typography variant="subtitle2">
               Approval clicks: {votes + this.state.direction}
             </Typography>
           </CardContent>

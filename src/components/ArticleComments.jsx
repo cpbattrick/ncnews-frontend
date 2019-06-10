@@ -79,6 +79,7 @@ class ArticleComments extends React.Component {
               optRenderComment={this.optRenderComment}
             />
           )}
+          <br />
           <Typography className={classes.title} variant="h2">
             Comments
           </Typography>

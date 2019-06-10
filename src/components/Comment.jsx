@@ -1,6 +1,8 @@
 import React from "react";
 import { patchComment } from "../api";
 import { purgeComment } from "../api";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 class Comment extends React.Component {
   state = {
@@ -30,35 +32,39 @@ class Comment extends React.Component {
   render() {
     return (
       <div className="comment">
-        <h3>{this.props.comment.author || this.props.comment.username}</h3>
+        <Typography variant="h6">
+          {this.props.comment.author || this.props.comment.username}
+        </Typography>
 
-        <h4>{this.props.comment.body}</h4>
-        <h4>Votes: {this.props.comment.votes + this.state.direction || "0"}</h4>
+        <Typography variant="body2">{this.props.comment.body}</Typography>
+        <Typography variant="subtitle2">
+          Upvotes: {this.props.comment.votes + this.state.direction || "0"}
+        </Typography>
 
         {this.props.loggedInUser && (
           <div>
             {" "}
-            <button
+            <Button
               disabled={this.state.direction === 1}
               onClick={() => this.handleVote(1)}
             >
-              {this.state.direction === -1 ? "Bad Vote!" : "\\o/"}
-            </button>
-            <button
+              {this.state.direction === -1 ? "Bad Vote!" : "Upvote"}
+            </Button>
+            <Button
               disabled={this.state.direction === -1}
               onClick={() => this.handleVote(-1)}
             >
-              {this.state.direction === 1 ? "Bad Vote!" : ":("}
-            </button>
+              {this.state.direction === 1 ? "Bad Vote!" : "Downvote"}
+            </Button>
           </div>
         )}
 
         {this.props.comment.author === this.props.loggedInUser && (
-          <button
+          <Button
             onClick={() => this.deleteComment(this.props.comment.comment_id)}
           >
             Inappropriate
-          </button>
+          </Button>
         )}
       </div>
     );
