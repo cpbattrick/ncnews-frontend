@@ -2,6 +2,25 @@ import React from "react";
 import { getCommentsByArticleId } from "../api";
 import CommentForm from "./CommentsForm";
 import Comment from "./Comment";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = theme => ({
+  card: {
+    minWidth: 275,
+    width: "90%",
+    marginTop: "20px",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto"
+  },
+  title: {
+    fontSize: 30
+  }
+});
 
 class ArticleComments extends React.Component {
   state = {
@@ -49,47 +68,52 @@ class ArticleComments extends React.Component {
 
   render() {
     const totalPages = Math.ceil(+this.props.comment_count / 10);
+    const { classes } = this.props;
     return (
-      <div className="articlecomments">
-        {this.props.loggedInUser && (
-          <CommentForm
-            article_id={this.props.article_id}
-            loggedInUser={this.props.loggedInUser}
-            optRenderComment={this.optRenderComment}
-          />
-        )}
-        <h2>Comments</h2>
-        {this.state.err && <div>Comment failed to post</div>}
-        {this.state.comments.map(comment => {
-          return (
-            <div key={`comment${comment.comment_id}`}>
-              <Comment
-                loggedInUser={this.props.loggedInUser}
-                comment={comment}
-              />
-            </div>
-          );
-        })}
-        {this.state.page > 1 && (
-          <button
+      <Card className={classes.card}>
+        <CardContent>
+          {this.props.loggedInUser && (
+            <CommentForm
+              article_id={this.props.article_id}
+              loggedInUser={this.props.loggedInUser}
+              optRenderComment={this.optRenderComment}
+            />
+          )}
+          <Typography className={classes.title} variant="h2">
+            Comments
+          </Typography>
+          {this.state.err && <div>Comment failed to post</div>}
+          {this.state.comments.map(comment => {
+            return (
+              <div key={`comment${comment.comment_id}`}>
+                <Comment
+                  loggedInUser={this.props.loggedInUser}
+                  comment={comment}
+                />
+              </div>
+            );
+          })}
+          {this.state.page > 1 && (
+            <Button
+              onClick={() => {
+                this.changePage(-1);
+              }}
+            >
+              What was that? Back up!
+            </Button>
+          )}
+          <Button
+            disabled={this.state.page === totalPages}
             onClick={() => {
-              this.changePage(-1);
+              this.changePage(1);
             }}
           >
-            What was that? Back up!
-          </button>
-        )}
-        <button
-          disabled={this.state.page === totalPages}
-          onClick={() => {
-            this.changePage(1);
-          }}
-        >
-          Mo Comments PLS!
-        </button>
-      </div>
+            Mo Comments PLS!
+          </Button>
+        </CardContent>
+      </Card>
     );
   }
 }
 
-export default ArticleComments;
+export default withStyles(styles)(ArticleComments);
