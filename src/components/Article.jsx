@@ -11,11 +11,7 @@ import format from "date-fns/format";
 const styles = theme => ({
   card: {
     minWidth: 275,
-    margin: "1rem",
-    // eslint-disable-next-line no-useless-computed-key
-    ["@media (max-width:780px)"]: {
-      marginLeft: "0rem"
-    }
+    marginBottom: "10px"
   },
   title: {
     fontSize: 14

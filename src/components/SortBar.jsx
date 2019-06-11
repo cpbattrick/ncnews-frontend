@@ -11,6 +11,7 @@ const styles = theme => ({
     display: "inline-flex",
     flexDirection: "row",
     width: "50%",
+    marginBottom: "20px",
     // eslint-disable-next-line no-useless-computed-key
     ["@media (max-width:780px)"]: {
       width: "100%"
@@ -28,8 +29,8 @@ const styles = theme => ({
     }
   },
   button: {
-    minWidth: "100px",
-    marginLeft: "1rem"
+    minWidth: "50px",
+    marginLeft: "10px"
   }
 });
 

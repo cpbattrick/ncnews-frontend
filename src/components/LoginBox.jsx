@@ -3,7 +3,6 @@ import { getUser } from "../api";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { Typography } from "@material-ui/core";
-import Popover from "./Popover";
 import { withStyles } from "@material-ui/core/styles";
 import FormGroup from "@material-ui/core/FormGroup";
 
@@ -25,8 +24,10 @@ const styles = theme => ({
     flexDirection: "column",
     flex: 1,
     paddingLeft: "10px",
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1)
+    paddingTop: "5px",
+    paddingBottom: theme.spacing(1),
+    marginTop: theme.spacing(1),
+    textColor: "white"
   }
 });
 
@@ -62,6 +63,7 @@ class LoginBox extends React.Component {
           <FormGroup className={classes.form}>
             <div>
               <TextField
+                color="secondary"
                 id="standard-name"
                 label={this.state.err ? "Invalid User!" : "Username"}
                 onChange={this.storeUserInput}

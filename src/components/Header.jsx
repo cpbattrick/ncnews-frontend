@@ -10,7 +10,8 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    paddingTop: "5px"
   },
   title: {
     flexGrow: 1

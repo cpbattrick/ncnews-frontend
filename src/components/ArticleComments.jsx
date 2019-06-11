@@ -15,7 +15,8 @@ const styles = theme => ({
     marginTop: "20px",
     display: "block",
     marginLeft: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
+    marginBottom: "20px"
   },
   title: {
     fontSize: 30
