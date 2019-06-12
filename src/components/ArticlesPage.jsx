@@ -76,7 +76,7 @@ class ArticlesPage extends React.Component {
             this.changePage(1);
           }}
         >
-          Next page stupid machine, these articles displease me!
+          Next page, these articles displease me!
         </Button>
       </div>
     );

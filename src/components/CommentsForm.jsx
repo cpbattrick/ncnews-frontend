@@ -16,7 +16,9 @@ const styles = theme => ({
     marginLeft: "auto",
     marginRight: "auto"
   },
-  submitButton: {}
+  cardContent: {
+    marginTop: "10px"
+  }
 });
 
 class CommentForm extends React.Component {
@@ -48,7 +50,7 @@ class CommentForm extends React.Component {
 
     return (
       <Card className={classes.card}>
-        <CardContent>
+        <CardContent className={classes.cardContent}>
           <form onSubmit={this.handleSubmit}>
             <TextField
               id="outlined-multiline-flexible"
