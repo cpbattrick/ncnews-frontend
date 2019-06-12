@@ -8,10 +8,11 @@ import Error from "./components/Error";
 
 class App extends React.Component {
   state = {
-    loggedInUser: null
+    loggedInUser: localStorage.getItem("loggedInUser") || null
   };
 
   setUser = username => {
+    localStorage.setItem("loggedInUser", username);
     this.setState({ loggedInUser: username });
   };
 
