@@ -9,6 +9,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { textAlign } from "@material-ui/system";
 
 const styles = theme => ({
   card: {
@@ -24,6 +25,13 @@ const styles = theme => ({
   },
   pos: {
     marginBottom: 12
+  },
+  loading: {
+    fontSize: 30,
+    marginTop: "20px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    textAlign: "center"
   }
 });
 
@@ -69,7 +77,10 @@ class SingleArticle extends React.Component {
       votes,
       body
     } = this.state.article;
+
     if (this.state.err) return <Error err={this.state.err} />;
+    else if (this.state.article.title === undefined)
+      return <Typography className={classes.loading}>Loading...</Typography>;
     return (
       <div>
         <Card className={classes.card}>

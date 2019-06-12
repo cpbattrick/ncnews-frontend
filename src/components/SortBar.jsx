@@ -12,6 +12,7 @@ const styles = theme => ({
     flexDirection: "row",
     width: "50%",
     marginBottom: "20px",
+    marginTop: "20px",
     // eslint-disable-next-line no-useless-computed-key
     ["@media (max-width:780px)"]: {
       width: "100%"
