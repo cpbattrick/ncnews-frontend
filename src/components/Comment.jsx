@@ -25,7 +25,7 @@ class Comment extends React.Component {
 
   deleteComment = comment_id => {
     purgeComment(comment_id).then(res => {
-      console.log(res);
+      this.props.optRenderDeletedComment(comment_id);
     });
   };
 

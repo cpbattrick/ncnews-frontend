@@ -60,6 +60,18 @@ class ArticleComments extends React.Component {
     });
   };
 
+  optRenderDeletedComment = id => {
+    this.setState(prevState => {
+      const alteredComments = prevState.comments.filter(
+        comment => comment.comment_id !== id
+      );
+      console.log(alteredComments);
+      return {
+        comments: alteredComments
+      };
+    });
+  };
+
   removeOptComment = () => {
     this.setState(prevState => {
       const editedComments = prevState.comments.slice(1);
@@ -85,11 +97,12 @@ class ArticleComments extends React.Component {
           <Typography className={classes.title} variant="h2">
             Comments
           </Typography>
-          {this.state.err && <div>Comment failed to post</div>}
+          {this.state.err && <Typography>Comment failed to post</Typography>}
           {this.state.comments.map(comment => {
             return (
               <div key={`comment${comment.comment_id}`}>
                 <Comment
+                  optRenderDeletedComment={this.optRenderDeletedComment}
                   loggedInUser={this.props.loggedInUser}
                   comment={comment}
                 />
