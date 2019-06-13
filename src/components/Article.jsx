@@ -25,6 +25,10 @@ const styles = theme => ({
   }
 });
 
+const AdapterLink = React.forwardRef((props, ref) => (
+  <Link innerRef={ref} {...props} />
+));
+
 class Article extends React.Component {
   render() {
     const {
@@ -65,11 +69,9 @@ class Article extends React.Component {
           </div>
         </CardContent>
         <CardActions>
-          <Link to={`/${article_id}`}>
-            <Button>
-              <Typography>Full Article</Typography>
-            </Button>
-          </Link>
+          <Button component={AdapterLink} to={`/${article_id}`}>
+            <Typography>Full Article</Typography>
+          </Button>
         </CardActions>
       </Card>
     );
