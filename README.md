@@ -45,7 +45,7 @@ The build is minified and the filenames include the hashes.<br>
 Link to the backend repository: <br>
 [https://github.com/northcoders/be-nc-news](https://github.com/northcoders/be-nc-news)
 
-Link tp the deployed backend api: <br>
+Link to the deployed backend api: <br>
 [https://news-sprint.herokuapp.com/api/](https://news-sprint.herokuapp.com/api/)
 
 ### Link to deployed version
