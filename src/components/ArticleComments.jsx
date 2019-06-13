@@ -65,7 +65,6 @@ class ArticleComments extends React.Component {
       const alteredComments = prevState.comments.filter(
         comment => comment.comment_id !== id
       );
-      console.log(alteredComments);
       return {
         comments: alteredComments
       };
