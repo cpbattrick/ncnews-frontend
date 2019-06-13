@@ -43,7 +43,7 @@ class ArticlesPage extends React.Component {
   }
 
   setQuery = (topic, sort) => {
-    this.setState({ topic: topic, sort_by: sort });
+    this.setState({ topic: topic, sort_by: sort, page: 1 });
   };
 
   changePage = num => {

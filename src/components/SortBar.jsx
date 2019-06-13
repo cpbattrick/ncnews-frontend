@@ -86,7 +86,7 @@ class SortBar extends React.Component {
                 id: "order-by-simple"
               }}
             >
-              <MenuItem value={""}>None</MenuItem>
+              <MenuItem value={""}>Creation Date</MenuItem>
               <MenuItem value={"votes"}>Votes</MenuItem>
               <MenuItem value={"comment_count"}>Comment Count</MenuItem>
             </Select>
