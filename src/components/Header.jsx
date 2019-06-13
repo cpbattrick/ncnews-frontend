@@ -40,7 +40,6 @@ const Header = props => {
               News
             </Typography>
             <LoginBox
-              color="inherit"
               loggedInUser={props.loggedInUser}
               loginUser={props.loginUser}
               logoutUser={props.logoutUser}

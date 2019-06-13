@@ -63,7 +63,7 @@ class LoginBox extends React.Component {
           <FormGroup className={classes.form}>
             <div>
               <TextField
-                color="secondary"
+                color="primary"
                 id="standard-name"
                 label={this.state.err ? "Invalid User!" : "Username"}
                 onChange={this.storeUserInput}
