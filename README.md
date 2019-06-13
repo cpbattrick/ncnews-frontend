@@ -4,12 +4,18 @@ Fe-news-solo was created as part of a course at northcoders manchester. The app 
 
 ## Technologies
 
-React
+React <br>
 MaterialUI
 
 ## Install
 
-Run npm install in order to install all dependencies
+Run
+
+```bash
+npm install
+```
+
+in order to install all dependencies
 
 ## Available Scripts
 
@@ -34,7 +40,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 
-### `Back-End API`
+### Back-End API
 
 Link to the backend repository: <br>
 [https://github.com/northcoders/be-nc-news](https://github.com/northcoders/be-nc-news)
@@ -42,22 +48,22 @@ Link to the backend repository: <br>
 Link tp the deployed backend api: <br>
 [https://news-sprint.herokuapp.com/api/](https://news-sprint.herokuapp.com/api/)
 
-### `Link to deployed version`
+### Link to deployed version
 
 [https://cpb-ncnews.netlify.com/](https://cpb-ncnews.netlify.com/33)
 
-### `Minimum Versions`
+### Minimum Versions
 
-@material-ui/core: 4.0.2,
-@material-ui/icons: 4.0.1,
-@reach/router": 1.2.1,
-axios: 0.19.0,
-date-fns: 1.30.1,
-react: 16.8.6,
-react-dom: 16.8.6,
-react-scripts: 3.0.1,
-typeface-roboto: 0.0.54
+@material-ui/core: 4.0.2, <br>
+@material-ui/icons: 4.0.1, <br>
+@reach/router: 1.2.1, <br>
+axios: 0.19.0, <br>
+date-fns: 1.30.1, <br>
+react: 16.8.6, <br>
+react-dom: 16.8.6, <br>
+react-scripts: 3.0.1, <br>
+typeface-roboto: 0.0.54 <br>
 
-### `Authors`
+### Authors
 
 Charles Battrick
