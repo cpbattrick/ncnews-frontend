@@ -80,15 +80,15 @@ class ArticleComments extends React.Component {
 
   render() {
     const totalPages = Math.ceil(+this.props.comment_count / 10);
-    const { classes } = this.props;
+    const { classes, article_id, loggedInUser } = this.props;
     return (
       <Card className={classes.card}>
         <CardContent>
           {this.props.loggedInUser && (
             <CommentForm
               removeOptComment={this.removeOptComment}
-              article_id={this.props.article_id}
-              loggedInUser={this.props.loggedInUser}
+              article_id={article_id}
+              loggedInUser={loggedInUser}
               optRenderComment={this.optRenderComment}
             />
           )}
@@ -102,7 +102,7 @@ class ArticleComments extends React.Component {
               <div key={`comment${comment.comment_id}`}>
                 <Comment
                   optRenderDeletedComment={this.optRenderDeletedComment}
-                  loggedInUser={this.props.loggedInUser}
+                  loggedInUser={loggedInUser}
                   comment={comment}
                 />
               </div>

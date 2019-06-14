@@ -68,7 +68,9 @@ class SortBar extends React.Component {
                 id: "topic-simple"
               }}
             >
-              <MenuItem value={""}>All</MenuItem>
+              <MenuItem value={""} label="All">
+                All
+              </MenuItem>
               <MenuItem value={"football"}>Football</MenuItem>
               <MenuItem value={"cooking"}>Cooking</MenuItem>
               <MenuItem value={"coding"}>Coding</MenuItem>
@@ -86,7 +88,9 @@ class SortBar extends React.Component {
                 id: "order-by-simple"
               }}
             >
-              <MenuItem value={""}>Creation Date</MenuItem>
+              <MenuItem value={""} label="Creation Date">
+                Creation Date
+              </MenuItem>
               <MenuItem value={"votes"}>Votes</MenuItem>
               <MenuItem value={"comment_count"}>Comment Count</MenuItem>
             </Select>
