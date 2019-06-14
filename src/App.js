@@ -17,19 +17,17 @@ class App extends React.Component {
   };
 
   render() {
+    const { loggedInUser } = this.state;
     return (
       <div>
         <Header
-          loggedInUser={this.state.loggedInUser}
+          loggedInUser={loggedInUser}
           loginUser={this.setUser}
           logoutUser={() => this.setUser(null)}
         />
         <Router>
-          <ArticlesPage loggedInUser={this.state.loggedInUser} path="/" />
-          <SingleArticle
-            loggedInUser={this.state.loggedInUser}
-            path="/:article_id"
-          />
+          <ArticlesPage loggedInUser={loggedInUser} path="/" />
+          <SingleArticle loggedInUser={loggedInUser} path="/:article_id" />
           <Error default />
         </Router>
       </div>
