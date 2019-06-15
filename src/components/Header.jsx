@@ -43,6 +43,7 @@ const Header = props => {
         <div>
           <Toolbar>
             <IconButton
+              variant="contained"
               className={classes.menuButton}
               aria-controls="simple-menu"
               aria-haspopup="true"

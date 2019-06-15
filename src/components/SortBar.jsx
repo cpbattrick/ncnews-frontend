@@ -95,7 +95,12 @@ class SortBar extends React.Component {
               <MenuItem value={"comment_count"}>Comment Count</MenuItem>
             </Select>
           </FormControl>
-          <Button type="submit" className={button}>
+          <Button
+            variant="contained"
+            color="light"
+            type="submit"
+            className={button}
+          >
             Sort me!
           </Button>
         </form>
