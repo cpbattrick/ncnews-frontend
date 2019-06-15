@@ -8,17 +8,16 @@ import Typography from "@material-ui/core/Typography";
 import Home from "@material-ui/icons/Home";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from "@reach/router";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    flexWrap: "wrap",
-    paddingTop: "5px"
-  },
   title: {
     flexGrow: 1
   },
-  mobile: {}
+  menuButton: {
+    marginRight: "10px"
+  }
 }));
 
 const AdapterLink = React.forwardRef((props, ref) => (
@@ -28,14 +27,41 @@ const AdapterLink = React.forwardRef((props, ref) => (
 const Header = props => {
   const classes = useStyles();
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  function handleClick(event) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
+
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position="static">
-        <div className={classes.mobile}>
+        <div>
           <Toolbar>
-            <IconButton component={AdapterLink} to="/">
+            <IconButton
+              className={classes.menuButton}
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
+            >
               <Home />
             </IconButton>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem component={AdapterLink} to="/">
+                Home
+              </MenuItem>
+            </Menu>
+
             <Typography variant="h6" className={classes.title}>
               News
             </Typography>

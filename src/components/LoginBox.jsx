@@ -22,12 +22,11 @@ const styles = theme => ({
   textField: {
     display: "flex",
     flexDirection: "column",
-    flex: 1,
-    paddingLeft: "10px",
-    paddingTop: "5px",
-    paddingBottom: theme.spacing(1),
-    marginTop: theme.spacing(1),
-    textColor: "white"
+    flex: 1
+  },
+  container: {
+    padding: "10px",
+    marginLeft: "20px"
   }
 });
 
@@ -58,12 +57,11 @@ class LoginBox extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className={classes.container}>
         <form onSubmit={this.handleSubmit}>
           <FormGroup className={classes.form}>
             <div>
               <TextField
-                color="primary"
                 id="standard-name"
                 label={this.state.err ? "Invalid User!" : "Username"}
                 onChange={this.storeUserInput}
