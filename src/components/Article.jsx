@@ -69,7 +69,12 @@ class Article extends React.Component {
           </div>
         </CardContent>
         <CardActions>
-          <Button component={AdapterLink} to={`/${article_id}`}>
+          <Button
+            variant="contained"
+            color="primary"
+            component={AdapterLink}
+            to={`/${article_id}`}
+          >
             <Typography>Full Article</Typography>
           </Button>
         </CardActions>
