@@ -62,7 +62,9 @@ class CommentForm extends React.Component {
               required={true}
             />
             <div className="submitButton">
-              <Button type="submit">Submit</Button>
+              <Button variant="contained" color="light" type="submit">
+                Submit
+              </Button>
             </div>
           </form>
         </CardContent>

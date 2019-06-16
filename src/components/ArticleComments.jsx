@@ -110,6 +110,8 @@ class ArticleComments extends React.Component {
           })}
           {this.state.page > 1 && (
             <Button
+              variant="contained"
+              color="light"
               onClick={() => {
                 this.changePage(-1);
               }}
@@ -118,6 +120,8 @@ class ArticleComments extends React.Component {
             </Button>
           )}
           <Button
+            variant="contained"
+            color="light"
             disabled={this.state.page === totalPages}
             onClick={() => {
               this.changePage(1);

@@ -3,6 +3,15 @@ import { patchComment } from "../api";
 import { purgeComment } from "../api";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
+
+const styles = theme => ({
+  button: {
+    marginTop: "10px",
+    marginRight: "10px",
+    marginBottom: "10px"
+  }
+});
 
 class Comment extends React.Component {
   state = {
@@ -30,6 +39,7 @@ class Comment extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <div className="comment">
         <Typography variant="h6">
@@ -45,12 +55,18 @@ class Comment extends React.Component {
           <div>
             {" "}
             <Button
+              className={classes.button}
+              variant="contained"
+              color="light"
               disabled={this.state.direction === 1}
               onClick={() => this.handleVote(1)}
             >
               {this.state.direction === -1 ? "Bad Vote!" : "Upvote"}
             </Button>
             <Button
+              className={classes.button}
+              variant="contained"
+              color="light"
               disabled={this.state.direction === -1}
               onClick={() => this.handleVote(-1)}
             >
@@ -61,6 +77,9 @@ class Comment extends React.Component {
 
         {this.props.comment.author === this.props.loggedInUser && (
           <Button
+            className={classes.button}
+            variant="contained"
+            color="light"
             onClick={() => this.deleteComment(this.props.comment.comment_id)}
           >
             Delete
@@ -71,4 +90,4 @@ class Comment extends React.Component {
   }
 }
 
-export default Comment;
+export default withStyles(styles)(Comment);

@@ -63,6 +63,8 @@ class ArticlesPage extends React.Component {
         />
         {this.state.page > 1 && (
           <Button
+            variant="contained"
+            color="light"
             onClick={() => {
               this.changePage(-1);
             }}
@@ -71,6 +73,8 @@ class ArticlesPage extends React.Component {
           </Button>
         )}
         <Button
+          variant="contained"
+          color="light"
           disabled={this.state.page === pageCount}
           onClick={() => {
             this.changePage(1);

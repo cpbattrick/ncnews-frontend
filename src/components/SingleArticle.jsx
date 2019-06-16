@@ -9,6 +9,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 //import { textAlign } from "@material-ui/system";
 
 const styles = theme => ({
@@ -89,11 +90,15 @@ class SingleArticle extends React.Component {
               {title}
             </Typography>
             <br />
+            <Divider variant="middle" />
+            <br />
             <Typography variant="h6">Topic: {topic}</Typography>
             <Typography variant="h6">Author: {author}</Typography>
 
             <br />
             <Typography variant="body1">{body}</Typography>
+            <br />
+            <Divider variant="middle" />
             <br />
             <Typography variant="subtitle2">
               Approval clicks: {votes + this.state.direction}
@@ -102,12 +107,16 @@ class SingleArticle extends React.Component {
           {this.props.loggedInUser && (
             <CardActions>
               <Button
+                variant="contained"
+                color="light"
                 disabled={this.state.direction === 1}
                 onClick={() => this.handleVote(1)}
               >
                 {this.state.direction === -1 ? "Bad Vote!" : "Good Article!"}
               </Button>
               <Button
+                variant="contained"
+                color="light"
                 disabled={this.state.direction === -1}
                 onClick={() => this.handleVote(-1)}
               >
