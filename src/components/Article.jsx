@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "@reach/router";
 import format from "date-fns/format";
+import Divider from "@material-ui/core/Divider";
 
 const styles = theme => ({
   card: {
@@ -50,6 +51,9 @@ class Article extends React.Component {
           <Typography align="left" variant="h5" component="h2">
             {title}
           </Typography>
+          <br />
+          <Divider variant="middle" />
+          <br />
           <Typography
             className={classes.title}
             color="textSecondary"

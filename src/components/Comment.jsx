@@ -4,6 +4,7 @@ import { purgeComment } from "../api";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
+import { Divider } from "@material-ui/core";
 
 const styles = theme => ({
   button: {
@@ -76,15 +77,21 @@ class Comment extends React.Component {
         )}
 
         {this.props.comment.author === this.props.loggedInUser && (
-          <Button
-            className={classes.button}
-            variant="contained"
-            color="light"
-            onClick={() => this.deleteComment(this.props.comment.comment_id)}
-          >
-            Delete
-          </Button>
+          <div>
+            <Button
+              className={classes.button}
+              variant="contained"
+              color="light"
+              onClick={() => this.deleteComment(this.props.comment.comment_id)}
+            >
+              Delete
+            </Button>
+            <br />
+          </div>
         )}
+
+        <br />
+        <Divider variant="middle" />
       </div>
     );
   }
