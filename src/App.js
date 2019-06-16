@@ -26,7 +26,22 @@ class App extends React.Component {
           logoutUser={() => this.setUser(null)}
         />
         <Router>
-          <ArticlesPage loggedInUser={loggedInUser} path="/" />
+          <ArticlesPage loggedInUser={loggedInUser} path="/" topic="" />
+          <ArticlesPage
+            loggedInUser={loggedInUser}
+            path="/football"
+            topic="football"
+          />
+          <ArticlesPage
+            loggedInUser={loggedInUser}
+            path="/cooking"
+            topic="cooking"
+          />
+          <ArticlesPage
+            loggedInUser={loggedInUser}
+            path="/coding"
+            topic="coding"
+          />
           <SingleArticle loggedInUser={loggedInUser} path="/:article_id" />
           <Error default />
         </Router>

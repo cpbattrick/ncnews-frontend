@@ -9,12 +9,12 @@ class ArticlesPage extends React.Component {
     articles: [],
     page: 1,
     article_count: 0,
-    topic: "",
+    topic: this.props.topic || "",
     sort_by: ""
   };
 
   componentDidMount() {
-    getArticles({}).then(data => {
+    getArticles({ topic: this.state.topic }).then(data => {
       this.setState({
         articles: data.data.articles,
         article_count: data.data.total_count
@@ -24,14 +24,14 @@ class ArticlesPage extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     const query = {
-      topic: this.state.topic,
+      topic: this.props.topic,
       p: this.state.page,
       sort_by: this.state.sort_by
     };
     if (
       prevState.page !== this.state.page ||
       prevState.sort_by !== this.state.sort_by ||
-      prevState.topic !== this.state.topic
+      prevProps.topic !== this.props.topic
     ) {
       getArticles(query).then(data => {
         this.setState({

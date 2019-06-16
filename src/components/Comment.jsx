@@ -91,7 +91,7 @@ class Comment extends React.Component {
         )}
 
         <br />
-        <Divider variant="middle" />
+        <Divider color="secondary" variant="middle" />
       </div>
     );
   }
