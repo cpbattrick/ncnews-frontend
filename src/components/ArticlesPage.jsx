@@ -63,9 +63,13 @@ class ArticlesPage extends React.Component {
         />
         {this.state.page > 1 && (
           <Button
-            style={{ marginBottom: "10px", marginRight: "10px" }}
+            style={{
+              marginBottom: "10px",
+              marginRight: "10px",
+              background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+              color: "white"
+            }}
             variant="contained"
-            color="light"
             onClick={() => {
               this.changePage(-1);
             }}
@@ -74,9 +78,12 @@ class ArticlesPage extends React.Component {
           </Button>
         )}
         <Button
-          style={{ marginBottom: "10px" }}
+          style={{
+            marginBottom: "10px",
+            background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+            color: "white"
+          }}
           variant="contained"
-          color="light"
           disabled={this.state.page === pageCount}
           onClick={() => {
             this.changePage(1);

@@ -23,6 +23,10 @@ const styles = theme => ({
   floated: {
     display: "column",
     float: "right"
+  },
+  button: {
+    background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+    color: "white"
   }
 });
 
@@ -75,7 +79,7 @@ class Article extends React.Component {
         <CardActions>
           <Button
             variant="contained"
-            color="light"
+            className={classes.button}
             component={AdapterLink}
             to={`/${article_id}`}
           >

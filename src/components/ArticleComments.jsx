@@ -110,9 +110,12 @@ class ArticleComments extends React.Component {
           })}
           {this.state.page > 1 && (
             <Button
-              style={{ marginRight: "10px" }}
+              style={{
+                marginRight: "10px",
+                background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+                color: "white"
+              }}
               variant="contained"
-              color="light"
               onClick={() => {
                 this.changePage(-1);
               }}
@@ -122,7 +125,10 @@ class ArticleComments extends React.Component {
           )}
           <Button
             variant="contained"
-            color="light"
+            style={{
+              background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+              color: "white"
+            }}
             disabled={this.state.page === totalPages}
             onClick={() => {
               this.changePage(1);

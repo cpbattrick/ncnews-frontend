@@ -17,6 +17,12 @@ const styles = theme => ({
   },
   cardContent: {
     marginTop: "10px"
+  },
+  input: { width: "90%", marginLeft: "5%" },
+  button: {
+    background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+    color: "white",
+    marginLeft: "5%"
   }
 });
 
@@ -52,6 +58,7 @@ class CommentForm extends React.Component {
         <CardContent className={classes.cardContent}>
           <form onSubmit={this.handleSubmit}>
             <TextField
+              className={classes.input}
               id="outlined-multiline-flexible"
               label="Post Comment"
               multiline
@@ -61,11 +68,14 @@ class CommentForm extends React.Component {
               variant="outlined"
               required={true}
             />
-            <div className="submitButton">
-              <Button variant="contained" color="light" type="submit">
-                Submit
-              </Button>
-            </div>
+
+            <Button
+              className={classes.button}
+              variant="contained"
+              type="submit"
+            >
+              Submit
+            </Button>
           </form>
         </CardContent>
       </Card>

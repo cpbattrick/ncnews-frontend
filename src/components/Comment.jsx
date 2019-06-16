@@ -10,7 +10,9 @@ const styles = theme => ({
   button: {
     marginTop: "10px",
     marginRight: "10px",
-    marginBottom: "10px"
+    marginBottom: "10px",
+    background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+    color: "white"
   }
 });
 
@@ -58,7 +60,6 @@ class Comment extends React.Component {
             <Button
               className={classes.button}
               variant="contained"
-              color="light"
               disabled={this.state.direction === 1}
               onClick={() => this.handleVote(1)}
             >
@@ -67,7 +68,6 @@ class Comment extends React.Component {
             <Button
               className={classes.button}
               variant="contained"
-              color="light"
               disabled={this.state.direction === -1}
               onClick={() => this.handleVote(-1)}
             >
@@ -81,7 +81,6 @@ class Comment extends React.Component {
             <Button
               className={classes.button}
               variant="contained"
-              color="light"
               onClick={() => this.deleteComment(this.props.comment.comment_id)}
             >
               Delete
@@ -91,7 +90,7 @@ class Comment extends React.Component {
         )}
 
         <br />
-        <Divider color="secondary" variant="middle" />
+        <Divider variant="middle" />
       </div>
     );
   }

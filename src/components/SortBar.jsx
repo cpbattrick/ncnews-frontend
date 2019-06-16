@@ -31,7 +31,9 @@ const styles = theme => ({
   },
   button: {
     minWidth: "50px",
-    marginLeft: "10px"
+    marginLeft: "10px",
+    background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+    color: "white"
   }
 });
 
@@ -95,12 +97,7 @@ class SortBar extends React.Component {
               <MenuItem value={"comment_count"}>Comment Count</MenuItem>
             </Select>
           </FormControl>
-          <Button
-            variant="contained"
-            color="light"
-            type="submit"
-            className={button}
-          >
+          <Button variant="contained" type="submit" className={button}>
             Sort me!
           </Button>
         </form>

@@ -33,6 +33,10 @@ const styles = theme => ({
     marginLeft: "auto",
     marginRight: "auto",
     textAlign: "center"
+  },
+  button: {
+    background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+    color: "white"
   }
 });
 
@@ -108,7 +112,7 @@ class SingleArticle extends React.Component {
             <CardActions>
               <Button
                 variant="contained"
-                color="light"
+                className={classes.button}
                 disabled={this.state.direction === 1}
                 onClick={() => this.handleVote(1)}
               >
@@ -116,7 +120,7 @@ class SingleArticle extends React.Component {
               </Button>
               <Button
                 variant="contained"
-                color="light"
+                className={classes.button}
                 disabled={this.state.direction === -1}
                 onClick={() => this.handleVote(-1)}
               >
