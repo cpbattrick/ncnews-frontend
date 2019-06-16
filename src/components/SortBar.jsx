@@ -58,7 +58,7 @@ class SortBar extends React.Component {
     return (
       <div>
         <form className={form} onSubmit={this.handleSubmit}>
-          <FormControl className={column}>
+          {/* <FormControl className={column}>
             <InputLabel htmlFor="topic-simple">Topics</InputLabel>
             <Select
               value={this.state.topic}
@@ -75,7 +75,7 @@ class SortBar extends React.Component {
               <MenuItem value={"cooking"}>Cooking</MenuItem>
               <MenuItem value={"coding"}>Coding</MenuItem>
             </Select>
-          </FormControl>
+          </FormControl> */}
 
           <FormControl className={column}>
             <InputLabel htmlFor="sort-simple">Order By</InputLabel>
@@ -88,7 +88,7 @@ class SortBar extends React.Component {
                 id: "order-by-simple"
               }}
             >
-              <MenuItem value={""} label="Creation Date">
+              <MenuItem value={"created_at"} label="Creation Date">
                 Creation Date
               </MenuItem>
               <MenuItem value={"votes"}>Votes</MenuItem>
