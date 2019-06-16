@@ -58,7 +58,7 @@ const Header = props => {
               onClose={handleClose}
             >
               <MenuItem component={AdapterLink} to="/">
-                Home
+                All
               </MenuItem>
               <MenuItem component={AdapterLink} to="/football">
                 Football

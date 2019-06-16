@@ -63,6 +63,7 @@ class ArticlesPage extends React.Component {
         />
         {this.state.page > 1 && (
           <Button
+            style={{ marginBottom: "10px", marginRight: "10px" }}
             variant="contained"
             color="light"
             onClick={() => {
@@ -73,6 +74,7 @@ class ArticlesPage extends React.Component {
           </Button>
         )}
         <Button
+          style={{ marginBottom: "10px" }}
           variant="contained"
           color="light"
           disabled={this.state.page === pageCount}

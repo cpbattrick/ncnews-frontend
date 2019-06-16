@@ -110,6 +110,7 @@ class ArticleComments extends React.Component {
           })}
           {this.state.page > 1 && (
             <Button
+              style={{ marginRight: "10px" }}
               variant="contained"
               color="light"
               onClick={() => {
