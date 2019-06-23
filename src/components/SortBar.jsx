@@ -60,25 +60,6 @@ class SortBar extends React.Component {
     return (
       <div>
         <form className={form} onSubmit={this.handleSubmit}>
-          {/* <FormControl className={column}>
-            <InputLabel htmlFor="topic-simple">Topics</InputLabel>
-            <Select
-              value={this.state.topic}
-              onChange={this.handleChange}
-              inputProps={{
-                name: "topic",
-                id: "topic-simple"
-              }}
-            >
-              <MenuItem value={""} label="All">
-                All
-              </MenuItem>
-              <MenuItem value={"football"}>Football</MenuItem>
-              <MenuItem value={"cooking"}>Cooking</MenuItem>
-              <MenuItem value={"coding"}>Coding</MenuItem>
-            </Select>
-          </FormControl> */}
-
           <FormControl className={column}>
             <InputLabel htmlFor="sort-simple">Order By</InputLabel>
             <Select
