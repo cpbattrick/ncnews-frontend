@@ -71,10 +71,13 @@ class ArticlesPage extends React.Component {
             Loading...
           </Typography>
         ) : (
-          <ArticlesList
-            loggedInUser={this.props.loggedInUser}
-            articles={this.state.articles}
-          />
+          <div>
+            <Typography>{`Page: ${this.state.page}`}</Typography>
+            <ArticlesList
+              loggedInUser={this.props.loggedInUser}
+              articles={this.state.articles}
+            />
+          </div>
         )}
 
         {this.state.page > 1 && (
