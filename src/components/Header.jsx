@@ -10,6 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { Link } from "@reach/router";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -74,11 +75,30 @@ const Header = props => {
             <Typography variant="h6" className={classes.title}>
               News
             </Typography>
-            <LoginBox
-              loggedInUser={props.loggedInUser}
-              loginUser={props.loginUser}
-              logoutUser={props.logoutUser}
-            />
+            {props.loggedInUser ? (
+              <div>
+                <Typography>{`Logged In: ${props.loggedInUser}`}</Typography>
+                <Button
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    marginLeft: "1rem",
+                    maxWidth: "60px"
+                  }}
+                  type="button"
+                  onClick={props.logoutUser}
+                >
+                  <Typography>Logout</Typography>
+                </Button>
+              </div>
+            ) : (
+              <LoginBox
+                loggedInUser={props.loggedInUser}
+                loginUser={props.loginUser}
+                logoutUser={props.logoutUser}
+              />
+            )}
           </Toolbar>
         </div>
       </AppBar>

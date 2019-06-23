@@ -78,14 +78,6 @@ class LoginBox extends React.Component {
             >
               <Typography>Login</Typography>
             </Button>
-            <Button
-              className={classes.column}
-              disabled={this.props.loggedInUser ? false : true}
-              type="button"
-              onClick={this.props.logoutUser}
-            >
-              <Typography>Logout</Typography>
-            </Button>
           </FormGroup>
         </form>
       </div>
