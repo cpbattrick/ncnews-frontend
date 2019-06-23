@@ -3,6 +3,7 @@ import ArticlesList from "./ArticlesList";
 import { getArticles } from "../api";
 import SortBar from "./SortBar";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 class ArticlesPage extends React.Component {
   state = {
@@ -57,10 +58,25 @@ class ArticlesPage extends React.Component {
     return (
       <div className="articlepage">
         <SortBar setQuery={this.setQuery} />
-        <ArticlesList
-          loggedInUser={this.props.loggedInUser}
-          articles={this.state.articles}
-        />
+        {!this.state.articles.length ? (
+          <Typography
+            style={{
+              fontSize: 30,
+              marginTop: "20px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              textAlign: "center"
+            }}
+          >
+            Loading...
+          </Typography>
+        ) : (
+          <ArticlesList
+            loggedInUser={this.props.loggedInUser}
+            articles={this.state.articles}
+          />
+        )}
+
         {this.state.page > 1 && (
           <Button
             style={{
