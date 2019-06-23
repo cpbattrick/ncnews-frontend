@@ -12,7 +12,8 @@ class App extends React.Component {
   };
 
   setUser = username => {
-    localStorage.setItem("loggedInUser", username);
+    if (username !== null) localStorage.setItem("loggedInUser", username);
+    else localStorage.clear();
     this.setState({ loggedInUser: username });
   };
 
